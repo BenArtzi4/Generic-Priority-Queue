@@ -15,4 +15,11 @@ public class CustomerTicket {
         return this.id == other.id && this.ticketContent.equals(other.ticketContent);
     }
 
+    public String toString()
+    {
+        return  "Name: " + this.name +
+                "ID: " + this.id +
+                "Ticket content: " +  this.ticketContent;
+    }
+
 }
