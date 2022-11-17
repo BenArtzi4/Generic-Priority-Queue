@@ -18,8 +18,8 @@ public class CustomerTicket {
     public String toString()
     {
         return  "Name: " + this.name +
-                "ID: " + this.id +
-                "Ticket content: " +  this.ticketContent;
+                "\nID: " + this.id +
+                "\nTicket content: " +  this.ticketContent;
     }
 
 }

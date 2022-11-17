@@ -18,5 +18,7 @@ public class Main {
         queue.add(new CustomerTicket("Noah", 1999199, "Product is out of stock"),3);
         queue.add(new CustomerTicket("Olivia", 11223344, "Product is out of stock"), 3);
 
+        System.out.println(queue.poll());
+
     }
 }

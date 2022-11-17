@@ -4,7 +4,7 @@ import java.util.Iterator;
 public class GenrePriorityQueue <T>
 {
     // The priority queue object
-    private final ArrayList<T>[] priorityQueue;
+    private ArrayList<T>[] priorityQueue;
     // The number of priorities
     private final int priorities;
 
@@ -22,6 +22,10 @@ public class GenrePriorityQueue <T>
     {
         this.priorities = generateNumberOfPriorities(priorities);
         this.priorityQueue = new ArrayList[this.priorities];
+        for (int i = 0 ; i < this.priorities ; i++)
+        {
+            ArrayList<T> priorityQueue[i] = new ArrayList<T>();
+        }
     }
 
 
@@ -148,4 +152,19 @@ public class GenrePriorityQueue <T>
         }
         return new int[]{NOT_FOUND, NOT_FOUND};
     }
+
+    public String toString()
+    {
+        String  tempStr = "";
+        for (int i = 0; i < priorities; i++)
+        {
+            for (int j = 0; j < priorityQueue[i].size(); j++)
+            {
+                tempStr = tempStr.concat("\n" + priorityQueue[i].toString());
+                tempStr = tempStr.concat("Ticket priority: " + i);
+            }
+        }
+        return tempStr;
+    }
+
 }
