@@ -22,6 +22,11 @@ public class GenericPriorityQueue <T>
     {
         this.priorities = generateNumberOfPriorities(priorities);
         this.priorityQueue = new ArrayList<ArrayList<T>>();
+        for (int i = 0 ; i < this.priorities ; i++)
+        {
+            ArrayList<T> a = new ArrayList<T>();
+            this.priorityQueue.add(a);
+        }
     }
 
 
@@ -54,7 +59,7 @@ public class GenericPriorityQueue <T>
         {
             priority = INITIALIZE;
         }
-        this.priorityQueue.get(priority-1).add(element);
+        this.priorityQueue.get(priority).add(element);
     }
 
 
