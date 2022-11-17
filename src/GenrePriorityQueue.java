@@ -3,8 +3,11 @@ import java.util.Iterator;
 
 public class GenrePriorityQueue <T>
 {
+    // The priority queue object
     private final ArrayList<T>[] priorityQueue;
+    // The number of priorities
     private final int priorities;
+
     final int MIN_Priorities = 1;
     final int MAX_Priorities = 10;
     final int INITIALIZE = 0;
