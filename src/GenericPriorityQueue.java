@@ -145,7 +145,7 @@ public class GenericPriorityQueue <T>
         {
             for (int j = 0; j < this.priorityQueue.get(i).size(); j++)
             {
-                if (this.priorityQueue.get(i).get(j).equals(element))
+                if (element.equals(this.priorityQueue.get(i).get(j)))
                 {
                     return new int[]{i, j};
                 }
@@ -153,6 +153,7 @@ public class GenericPriorityQueue <T>
         }
         return new int[]{NOT_FOUND, NOT_FOUND};
     }
+
 
     public String toString()
     {
@@ -162,7 +163,7 @@ public class GenericPriorityQueue <T>
             for (int j = 0; j < this.priorityQueue.get(i).size(); j++)
             {
                 tempStr = tempStr.concat("\n" + this.priorityQueue.get(i).toString());
-                tempStr = tempStr.concat("Ticket priority: " + i);
+                tempStr = tempStr.concat("\nTicket priority: " + i);
             }
         }
         return tempStr;

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
 
@@ -18,7 +18,23 @@ public class Main {
         queue.add(new CustomerTicket("Noah", 1999199, "Product is out of stock"),3);
         queue.add(new CustomerTicket("Olivia", 11223344, "Product is out of stock"), 3);
 
+        CustomerTicket ticket1 = new CustomerTicket("Liam", 12123434, "Defective product");
+        CustomerTicket ticket2 = new CustomerTicket("Harper", 2332451, "No answer");
+
+
         System.out.println(queue.poll());
+        System.out.println(queue.contains(ticket1));
+        System.out.println(queue.remove(ticket2));
+        System.out.println(queue.size());
+
+        Iterator<CustomerTicket> iterator = queue.iterator();
+        while (iterator.hasNext())
+        {
+            System.out.println(iterator.next().toString());
+        }
+
+
+
 
     }
 }

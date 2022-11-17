@@ -10,16 +10,21 @@ public class CustomerTicket {
         this.ticketContent = content;
     }
 
-    public boolean equals(CustomerTicket other)
+    public boolean equals(Object other)
     {
-        return this.id == other.id && this.ticketContent.equals(other.ticketContent);
-    }
+        if (other instanceof CustomerTicket)
+        {
+            return this.id == ((CustomerTicket) other).id && this.ticketContent.equals(((CustomerTicket) other).ticketContent);
+        }
+        return false;
+   }
 
     public String toString()
     {
         return  "Name: " + this.name +
                 "\nID: " + this.id +
-                "\nTicket content: " +  this.ticketContent;
+                "\nTicket content: " +  this.ticketContent
+                + "\n";
     }
 
 }
