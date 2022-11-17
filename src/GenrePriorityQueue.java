@@ -4,12 +4,12 @@ import java.util.Iterator;
 public class GenrePriorityQueue <T>
 {
     // The priority queue object
-    private ArrayList<T>[] priorityQueue;
+    ArrayList<ArrayList<T>> priorityQueue;
     // The number of priorities
     private final int priorities;
 
-    final int MIN_Priorities = 1;
-    final int MAX_Priorities = 10;
+    final int MIN_PRIORITIES = 1;
+    final int MAX_PRIORITIES = 10;
     final int INITIALIZE = 0;
     final int NOT_FOUND = -1;
 
@@ -21,11 +21,7 @@ public class GenrePriorityQueue <T>
     public GenrePriorityQueue(int priorities)
     {
         this.priorities = generateNumberOfPriorities(priorities);
-        this.priorityQueue = new ArrayList[this.priorities];
-        for (int i = 0 ; i < this.priorities ; i++)
-        {
-            ArrayList<T> priorityQueue[i] = new ArrayList<T>();
-        }
+        this.priorityQueue = new ArrayList<ArrayList<T>>();
     }
 
 
@@ -34,9 +30,9 @@ public class GenrePriorityQueue <T>
      */
     public int generateNumberOfPriorities(int priorities)
     {
-        if (priorities < MIN_Priorities || priorities > MAX_Priorities)
+        if (priorities < MIN_PRIORITIES || priorities > MAX_PRIORITIES)
         {
-            return MAX_Priorities;
+            return MAX_PRIORITIES;
         }
         return priorities;
     }
@@ -48,9 +44,9 @@ public class GenrePriorityQueue <T>
     public void add(T element, int priority)
     {
         // If the priority is higher then number of priorities so the object's priority will be the last one
-        if (priority >= priorities)
+        if (priority >= this.priorities)
         {
-            priority = priorities - MIN_Priorities;
+            priority = this.priorities - MIN_PRIORITIES;
         }
 
         // If the priority is less the 0 (the highest priority) the object's priority will be the highest
@@ -58,7 +54,7 @@ public class GenrePriorityQueue <T>
         {
             priority = INITIALIZE;
         }
-        priorityQueue[priority-1].add(element);
+        this.priorityQueue.get(priority-1).add(element);
     }
 
 
@@ -67,11 +63,11 @@ public class GenrePriorityQueue <T>
      */
     public T poll()
     {
-        for (int i = 0 ; i < priorities ; i++)
+        for (int i = 0 ; i < this.priorities ; i++)
         {
-            if (priorityQueue[i].size() != 0)
+            if (this.priorityQueue.get(i).size() != 0)
             {
-                return priorityQueue[i].get(0);
+                return this.priorityQueue.get(i).get(0);
             }
         }
         return null;
@@ -99,7 +95,7 @@ public class GenrePriorityQueue <T>
         {
             return false;
         }
-        priorityQueue[temp_place[0]].remove(temp_place[1]);
+        priorityQueue.get(temp_place[0]).remove(temp_place[1]);
         return true;
     }
 
@@ -110,9 +106,9 @@ public class GenrePriorityQueue <T>
     public int size()
     {
         int counter = INITIALIZE;
-        for (int i = 0; i < priorities; i++)
+        for (int i = 0; i < this.priorities; i++)
         {
-            for (int j = 0; j < priorityQueue[i].size(); j++)
+            for (int j = 0; j < this.priorityQueue.get(i).size(); j++)
             {
                 counter++;
             }
@@ -129,7 +125,7 @@ public class GenrePriorityQueue <T>
         ArrayList<T> tempArr = new ArrayList<T>();
         for (int i = 1; i < this.priorities; i++)
         {
-            tempArr.addAll(priorityQueue[i]);
+            tempArr.addAll(this.priorityQueue.get(i));
         }
         return tempArr.iterator();
     }
@@ -140,11 +136,11 @@ public class GenrePriorityQueue <T>
      */
     private int [] getPlace(T element)
     {
-        for (int i = 0; i < priorities; i++)
+        for (int i = 0; i < this.priorities; i++)
         {
-            for (int j = 0; j < priorityQueue[i].size(); j++)
+            for (int j = 0; j < this.priorityQueue.get(i).size(); j++)
             {
-                if (priorityQueue[i].get(j).equals(element))
+                if (this.priorityQueue.get(i).get(j).equals(element))
                 {
                     return new int[]{i, j};
                 }
@@ -158,9 +154,9 @@ public class GenrePriorityQueue <T>
         String  tempStr = "";
         for (int i = 0; i < priorities; i++)
         {
-            for (int j = 0; j < priorityQueue[i].size(); j++)
+            for (int j = 0; j < this.priorityQueue.get(i).size(); j++)
             {
-                tempStr = tempStr.concat("\n" + priorityQueue[i].toString());
+                tempStr = tempStr.concat("\n" + this.priorityQueue.get(i).toString());
                 tempStr = tempStr.concat("Ticket priority: " + i);
             }
         }
