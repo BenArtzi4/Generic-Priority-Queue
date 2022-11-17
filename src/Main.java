@@ -20,21 +20,22 @@ public class Main {
 
         CustomerTicket ticket1 = new CustomerTicket("Liam", 12123434, "Defective product");
         CustomerTicket ticket2 = new CustomerTicket("Harper", 2332451, "No answer");
+        CustomerTicket ticket3 = new CustomerTicket("Jhon", 11111111, "Long waiting");
 
 
-        System.out.println(queue.poll());
-        System.out.println(queue.contains(ticket1));
-        System.out.println(queue.remove(ticket2));
-        System.out.println(queue.size());
+
+        System.out.println("Poll command - returns the highest priority ticket: " + queue.poll());
+        System.out.println("Contains command - should return true: " + queue.contains(ticket1) + "\n");
+        System.out.println("Contains command - should return false: " + queue.contains(ticket3) + "\n");
+        System.out.println("Size command - should return 10: " + queue.size() + "\n");
+        System.out.println("Contains command - should return true: " + queue.remove(ticket2) + "\n");
+        System.out.println("Contains command - should return false: " + queue.remove(ticket3) + "\n");
+        System.out.println("Size command - should return 9: " + queue.size() + "\n");
 
         Iterator<CustomerTicket> iterator = queue.iterator();
         while (iterator.hasNext())
         {
             System.out.println(iterator.next().toString());
         }
-
-
-
-
     }
 }

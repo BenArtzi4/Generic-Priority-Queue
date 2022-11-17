@@ -21,7 +21,7 @@ public class CustomerTicket {
 
     public String toString()
     {
-        return  "Name: " + this.name +
+        return  "\nName: " + this.name +
                 "\nID: " + this.id +
                 "\nTicket content: " +  this.ticketContent
                 + "\n";
