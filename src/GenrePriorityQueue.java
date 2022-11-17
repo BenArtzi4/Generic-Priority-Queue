@@ -43,7 +43,18 @@ public class GenrePriorityQueue <T>
      */
     public void add(T element, int priority)
     {
-        priorityQueue[priority].add(element);
+        // If the priority is higher then number of priorities so the object's priority will be the last one
+        if (priority >= priorities)
+        {
+            priority = priorities - MIN_Priorities;
+        }
+
+        // If the priority is less the 0 (the highest priority) the object's priority will be the highest
+        if (priority < INITIALIZE)
+        {
+            priority = INITIALIZE;
+        }
+        priorityQueue[priority-1].add(element);
     }
 
 
