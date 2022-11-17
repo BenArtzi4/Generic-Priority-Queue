@@ -11,12 +11,16 @@ public class GenrePriorityQueue <T>
     final int NOT_FOUND = -1;
 
 
-
+    /*
+    Constructor that create an empty queue in the size of the received number
+    if the received number is not between 1 to 10 - a queue of maximum size will create
+     */
     public GenrePriorityQueue(int priorities)
     {
         this.priorities = generateNumberOfPriorities(priorities);
         this.priorityQueue = new ArrayList[this.priorities];
     }
+
 
     /*
     Method make sure that the number received is within the defined range
@@ -25,16 +29,24 @@ public class GenrePriorityQueue <T>
     {
         if (priorities < MIN_Priorities || priorities > MAX_Priorities)
         {
-            return MIN_Priorities;
+            return MAX_Priorities;
         }
         return priorities;
     }
 
+
+    /*
+    Adds a variable to the priority queue
+     */
     public void add(T element, int priority)
     {
         priorityQueue[priority].add(element);
     }
 
+
+    /*
+    Returns the variable at the top of the queue (with the highest priority)
+     */
     public T poll()
     {
         for (int i = 0 ; i < priorities ; i++)
@@ -47,11 +59,21 @@ public class GenrePriorityQueue <T>
         return null;
     }
 
+
+    /*
+    Returns whether the variable is in the priority queue
+     */
     public boolean contains(T element)
     {
         return getPlace(element)[0] != NOT_FOUND;
     }
 
+
+    /*
+    Removes the objects received
+    If the Object was successfully removed, "true" will be returned.
+    If it is not found, "false" will be returned.
+     */
     public boolean remove(T element)
     {
         int [] temp_place= getPlace(element);
@@ -63,6 +85,10 @@ public class GenrePriorityQueue <T>
         return true;
     }
 
+
+    /*
+    Returns the total number of objects
+     */
     public int size()
     {
         int counter = INITIALIZE;
@@ -76,6 +102,10 @@ public class GenrePriorityQueue <T>
         return counter;
     }
 
+
+    /*
+    Returns an object of type iterator containing all members of the queue
+     */
     public Iterator<T> iterator()
     {
         ArrayList<T> tempArr = new ArrayList<T>();
@@ -86,7 +116,11 @@ public class GenrePriorityQueue <T>
         return tempArr.iterator();
     }
 
-    public int [] getPlace(T element)
+
+    /*
+    Gets an object and returns its priority number and its priority inside the specific priority
+     */
+    private int [] getPlace(T element)
     {
         for (int i = 0; i < priorities; i++)
         {
@@ -100,5 +134,4 @@ public class GenrePriorityQueue <T>
         }
         return new int[]{NOT_FOUND, NOT_FOUND};
     }
-
 }
