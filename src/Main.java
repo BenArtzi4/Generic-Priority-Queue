@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args)
     {
 
-        GenrePriorityQueue<CustomerTicket> queue = new GenrePriorityQueue<CustomerTicket>(5);
+        GenericPriorityQueue<CustomerTicket> queue = new GenericPriorityQueue<CustomerTicket>(5);
 
         queue.add(new CustomerTicket("Liam", 12123434, "Defective product"),1);
         queue.add(new CustomerTicket("Harper", 2332451, "No answer"),4);

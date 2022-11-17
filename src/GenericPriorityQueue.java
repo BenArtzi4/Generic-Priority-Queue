@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class GenrePriorityQueue <T>
+public class GenericPriorityQueue <T>
 {
     // The priority queue object
     ArrayList<ArrayList<T>> priorityQueue;
@@ -18,7 +18,7 @@ public class GenrePriorityQueue <T>
     Constructor that create an empty queue in the size of the received number
     if the received number is not between 1 to 10 - a queue of maximum size will create
      */
-    public GenrePriorityQueue(int priorities)
+    public GenericPriorityQueue(int priorities)
     {
         this.priorities = generateNumberOfPriorities(priorities);
         this.priorityQueue = new ArrayList<ArrayList<T>>();
