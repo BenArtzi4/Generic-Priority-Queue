@@ -10,4 +10,9 @@ public class CustomerTicket {
         this.ticketContent = content;
     }
 
+    public boolean equals(CustomerTicket other)
+    {
+        return this.id == other.id && this.ticketContent.equals(other.ticketContent);
+    }
+
 }
