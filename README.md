@@ -1,15 +1,19 @@
-# Generic Priority Queue Program
+# Generic Priority Queue
 
-## Welcome to the Priority Queue program, written in Java!
+This repository contains a Java project that implements a generic priority queue data structure. The `GenericPriorityQueue` class allows you to store and manage elements with different priority levels. The project includes the implementation of the priority queue and a sample usage scenario.
 
-This program implements a generic class that represents a queue with n priority levels, where n is a number in the range 1 to 10. Each member of the queue has a priority level from 1 to n, with 1 being the highest priority and n being the lowest.
+## Introduction
 
-The queue is implemented using the type parameter T, which allows it to hold elements of any type.
+The `GenericPriorityQueue` class is designed to provide a flexible and efficient solution for managing elements based on their priority levels. Elements with higher priority values are dequeued before those with lower priority values. This priority queue implementation can handle a user-defined number of priority levels.
 
-The Priority Queue class has the following methods:
 
-[] add(T element, int priority): This method adds a new element to the queue with the specified priority.
 
-[] poll(): This method removes and returns the element with the highest priority from the queue.
+## Getting Started
+1. Clone this repository to your local machine.
+2. Compile the Java classes using your preferred Java compiler or development environment.
+3. Run the Main class to see the priority queue in action.
 
-[] contains(): Check whether an organ is in the queue
+## Features
+Flexible priority levels: You can define the number of priority levels when creating a GenericPriorityQueue object.
+Efficient operations: The priority queue efficiently manages elements based on their priority, ensuring high-performance operations.
+Example
